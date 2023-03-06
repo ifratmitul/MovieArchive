@@ -1,0 +1,11 @@
+.hero {
+    padding-block: 2rem;
+    width: min(95%, 81.25rem);
+    margin-inline: auto;
+    background-image: url('/assets/images/hero.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 20rem;
+    gap: 1.5rem;
+    color: white;
+}
