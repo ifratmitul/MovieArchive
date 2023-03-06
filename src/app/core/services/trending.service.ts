@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,4 +13,8 @@ export class TrendingService {
   getTrendingMovieList() {
     return this.http.get(this.url);
   }
+
+  // getTopTrendingMovie() {
+  //   return this.http.get(this.url).pipe(map(res))
+  // }
 }

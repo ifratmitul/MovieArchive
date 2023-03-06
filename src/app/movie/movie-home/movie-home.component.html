@@ -7,6 +7,14 @@
     <input placeholder="search movie" />
   </div>
 </section>
+<section class="trending" *ngIf="trendingMovieList.length">
+  <div class="trending-heading">
+    <h4>Trending</h4>
+  </div>
+  <div class="trending-movies">
+    <app-movie-card  *ngFor="let movie of trendingMovieList" [details]="movie"></app-movie-card>
+  </div>
+</section>
 <section class="testimonial-grid">
   <article
     class="testimonial grid-col-span-2 flow bg-primary-400 quote text-neutral-100"
