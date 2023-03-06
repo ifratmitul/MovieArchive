@@ -16,7 +16,7 @@
         'low-rating': details.vote_average < 7
       }"
     >
-      <span>{{ details.vote_average }}</span>
+      <span>{{ details.vote_average | number: '1.0-2' }}</span>
     </mat-card-footer>
   </mat-card>
 </a>
