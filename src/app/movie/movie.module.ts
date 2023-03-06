@@ -1,15 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle'
-import { ReactiveFormsModule } from '@angular/forms';
-import { FooterComponent } from './components/footer/footer.component';
+import { MovieHomeComponent } from './movie-home/movie-home.component';
+import { MovieRoutingModule } from './movie-routing.module';
 
-//material module
+//material ui component module import
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,19 +15,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
-    NavBarComponent,
-    FooterComponent,
+    MovieHomeComponent
   ],
   imports: [
     CommonModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatSlideToggleModule,
-    ReactiveFormsModule,
+    MovieRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
@@ -42,7 +28,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatCardModule,
     MatIconModule,
     MatDialogModule,
-  ],
-  exports: [NavBarComponent]
+  ]
 })
-export class CoreModule { }
+export class MovieModule { }

@@ -8,12 +8,10 @@
 //   font-family: Roboto, "Helvetica Neue", sans-serif;
 // }
 
-
 // .content {
 //   border: 1px solid orange;
 //   min-height: calc(100vh - 64px);
 // }
-
 
 :root {
   --clr-primary-400: 263 55% 52%;
@@ -166,7 +164,7 @@ h3 {
 /* components */
 .testimonial-grid {
   padding-block: 2rem;
-  width: min(95%, 70rem);
+  width: min(95%, 81.25rem);
   margin-inline: auto;
   display: grid;
   gap: 1.5rem;
@@ -178,6 +176,12 @@ h3 {
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400) / 0.25);
+
+  &:last-child {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
 }
 
 .testimonial.quote {
