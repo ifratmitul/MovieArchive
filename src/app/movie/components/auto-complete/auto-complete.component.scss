@@ -1,0 +1,13 @@
+.example-form {
+  max-width: 80%;
+  margin-inline: auto;
+}
+
+.example-full-width {
+  width: 100%;
+
+  ::ng-deep .mdc-text-field {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.507);
+  }
+}

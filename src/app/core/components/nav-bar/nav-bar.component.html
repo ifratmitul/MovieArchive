@@ -1,16 +1,24 @@
 <nav>
   <mat-toolbar color="primary">
-    <button
-      type="button"
-      aria-label="Toggle sidenav"
-      mat-icon-button
-      *ngIf="isHandset$ | async">
-      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
-    <span>Movie Archive</span>
-    <span style="flex:auto;"></span>
-    <mat-slide-toggle [formControl]="toggleControl">
-      <span style="color:white;">Dark</span> 
-    </mat-slide-toggle>
+    <section class="menu">
+      <a class="menu-title" [routerLink]="['/']">
+        <div class="menu-title__logo">
+          <img src="/assets/images/logo.svg" />
+        </div>
+        <div class="menu-title__heading">
+          <h4>Movie Archive</h4>
+        </div>
+      </a>
+      <ul class="menu-list">
+        <li class="menu-list__item"><a type="button" [routerLink]="['/movie-list']">Movies</a></li>
+        <li class="menu-list__item"><a type="button">TV Shows</a></li>
+        <li class="menu-list__item"><a type="button">People</a></li>
+        <li class="menu-list__item">
+          <mat-slide-toggle [formControl]="toggleControl">
+            <span style="color: white">Dark</span>
+          </mat-slide-toggle>
+        </li>
+      </ul>
+    </section>
   </mat-toolbar>
 </nav>

@@ -9,15 +9,26 @@
   height: 20rem;
   gap: 1.5rem;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-heading {
+    // outline: 1px solid yellow;
+  }
+  &-search-box {
+    // border: 1px solid yellow;
+  }
 }
 
 .trending {
   width: min(95%, 81.25rem);
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  // box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  padding: 2rem 0;
 
   &-heading {
     padding: 10px;

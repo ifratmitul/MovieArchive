@@ -7,18 +7,12 @@ import { environment } from 'src/environments/environment';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent implements OnInit, OnChanges {
-  ngOnInit(): void {
-   console.log(this.details)
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.details)
-  }
+export class MovieCardComponent {
 
   imageBaseUrl:string = environment.imageBaseUrl;
   @Input() details: MoviesDetails | null = null;
 
   onSelect(id:number){
-    //redirect to movie details
+    console.log(id);
   }
 }

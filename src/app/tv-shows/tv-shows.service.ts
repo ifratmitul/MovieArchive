@@ -6,20 +6,22 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class TrendingService {
-  private url = environment.baseUrl + 'trending/all/day'
+export class TvShowsService {
+
   constructor(private http:HttpClient) { }
 
-  getTrendingMovieList() {
-    return this.http.get(this.url).pipe(map((res:any) => {
+  getTodaysLiveTvShows() {
+    return this.http.get(`${environment.baseUrl}tv/airing_today`, {
+      params: {
+        language: 'en-US'
+      }
+    }).pipe(map((res:any) => {
+      console.log(res);
+      
       if(res.results.length > 5) {
-        return res.results.slice(0,5)
+        return res.results.slice(0,5);
       }
       return res.results;
     }))
   }
-
-  // getTopTrendingMovie() {
-  //   return this.http.get(this.url).pipe(map(res))
-  // }
 }

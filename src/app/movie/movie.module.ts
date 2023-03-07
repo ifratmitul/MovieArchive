@@ -12,12 +12,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete'
+import { AutoCompleteComponent } from './components/auto-complete/auto-complete.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
     MovieHomeComponent,
-    MovieCardComponent
+    AutoCompleteComponent,
+    MovieListComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +35,9 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     MatCardModule,
     MatIconModule,
     MatDialogModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    CoreModule
   ]
 })
 export class MovieModule { }

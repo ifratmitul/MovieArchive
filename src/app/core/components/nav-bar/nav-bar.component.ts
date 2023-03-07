@@ -13,13 +13,6 @@ import { ThemeService } from '../../services/theme.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
-
   toggleControl = new FormControl(this.themeService.getLastDarkModeStatus());
 
   constructor(private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private themeService: ThemeService) { }
