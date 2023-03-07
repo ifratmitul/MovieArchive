@@ -21,7 +21,7 @@
       *ngFor="let movie of trendingMovieList"
       [details]="movie"
     ></app-movie-card>
-    <a class="trending-movies__more">&#8594;</a>
+    <a class="trending-movies__more" [routerLink]="['/movie-list']">&#8594;</a>
   </div>
 </section>
 
@@ -34,7 +34,7 @@
       *ngFor="let movie of latestMovie"
       [details]="movie"
     ></app-movie-card>
-    <a class="trending-movies__more">&#8594;</a>
+    <a class="trending-movies__more" [routerLink]="['/movie-list']">&#8594;</a>
   </div>
 </section>
 
@@ -48,7 +48,7 @@
       *ngFor="let movie of todaysTvShows"
       [details]="movie"
     ></app-movie-card>
-    <a class="trending-movies__more">&#8594;</a>
+    <a class="trending-movies__more" [routerLink]="['/tv-shows']">&#8594;</a>
   </div>
 </section>
 

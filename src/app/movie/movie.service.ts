@@ -1,18 +1,19 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Observable, map } from 'rxjs';
+import { PaginatedApiResponse } from '../core/models/response';
+import { MoviesDetails } from '../core/models/movieDetails';
+import { movieConfig } from '../core/config/movieConfig';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  private url = `${environment.baseUrl}movie`
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getMovies(pageNo:number, language:string) {
-    return this.http.get(`${this.url}/popular`, {
+  getMovies(pageNo: number, language: string = movieConfig.defaultLanguage): Observable<PaginatedApiResponse<MoviesDetails>> {
+    return this.http.get<PaginatedApiResponse<MoviesDetails>>(movieConfig.latestMovieEndPoint, {
       params: {
         language: language,
         page: pageNo
@@ -20,21 +21,24 @@ export class MovieService {
     })
   }
 
-  getLatestMovies() {
-    console.log('latest movie');
-    
-    return this.http.get(`${this.url}/now_playing`, {
+  getLatestMovies() : Observable<MoviesDetails[]> {
+    return this.http.get<PaginatedApiResponse<MoviesDetails>>(movieConfig.latestMovieEndPoint, {
       params: {
-        language: 'en-US'
+        language: movieConfig.defaultLanguage
       }
-    }).pipe(map((res:any) => {
-      console.log(res);
-      
-      if(res.results.length > 5) {
-        return res.results.slice(0,5);
+    }).pipe(map((res: PaginatedApiResponse<MoviesDetails>) => {
+      if (res.results.length > 5) {
+        return res.results.slice(0, 5);
       }
       return res.results;
     }))
   }
 
+  searchMovie(query:string) {
+    return this.http.get(movieConfig.searchMovieEndPoint, {
+      params: {
+        query : query
+      }
+    })
+  }
 }

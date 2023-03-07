@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {debounce, debounceTime, distinctUntilChanged, map, startWith, switchMap} from 'rxjs/operators';
+import { MoviesDetails } from 'src/app/core/models/movieDetails';
 
 @Component({
   selector: 'app-auto-complete',
@@ -10,19 +11,19 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class AutoCompleteComponent implements OnInit {
   myControl = new FormControl('');
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]> | null = null;
+  options: MoviesDetails[] = [];
+  filteredOptions: Observable<MoviesDetails[]> | null = null;
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
+      debounceTime(300),
+      distinctUntilChanged(),
+      // switchMap((query:string) => this.move)
+      map((value:any) => this._filter(value || [])),
     );
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  private _filter(value: MoviesDetails[]): MoviesDetails[] {
+    return value
   }
 }

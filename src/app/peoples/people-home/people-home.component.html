@@ -1,1 +1,20 @@
-<p>people-home works!</p>
+<section class="people-grid">
+  <div class="people">
+    <div class="flex">
+      <app-actor-card
+        *ngFor="let people of peopleList"
+        [details]="people"
+      ></app-actor-card>
+    </div>
+    <div class="people-load">
+      <button
+        mat-raised-button
+        class="btn btn-load-more"
+        type="button"
+        (click)="loadMore()"
+      >
+        load more
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MoviesDetails } from 'src/app/core/models/movieDetails';
-import { environment } from 'src/environments/environment';
+import { baseConfig } from '../../config/baseConfig';
 
 @Component({
   selector: 'app-movie-card',
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MovieCardComponent {
 
-  imageBaseUrl:string = environment.imageBaseUrl;
+  imageBaseUrl:string = baseConfig.imageBaseUrl;
   @Input() details: MoviesDetails | null = null;
 
   onSelect(id:number){

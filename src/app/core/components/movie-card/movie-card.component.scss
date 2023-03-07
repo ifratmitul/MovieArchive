@@ -1,6 +1,12 @@
 .movie-card {
   position: relative;
 
+  &__header {
+    padding: 1rem;
+    font-size: 14px;
+    font-weight: 650;
+  }
+
   &-footer {
     position: absolute;
     display: flex;

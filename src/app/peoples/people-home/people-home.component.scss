@@ -1,0 +1,33 @@
+.peope-grid {
+    padding-block: 2rem;
+    width: min(95%, 81.25rem);
+    margin-inline: auto;
+    display: grid;
+    gap: 1.5rem;
+    // grid-template-columns: 20% 80%;
+    min-height: calc(100vh - 64px);
+  }
+  
+  .people {
+    font-size: var(--fs-400);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  
+    &-load {
+      text-align: center;
+      padding: 2rem;
+    }
+  }
+  
+  .peope-filter {
+    background-color: olivedrab;
+  }
+  
+  .flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  

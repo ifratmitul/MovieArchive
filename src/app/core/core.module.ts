@@ -53,6 +53,6 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     RouterModule,
     MatSelectModule
   ],
-  exports: [NavBarComponent, FilterComponent, MovieCardComponent, ActorCardComponent]
+  exports: [NavBarComponent, FilterComponent, MovieCardComponent, ActorCardComponent, MatButtonModule]
 })
 export class CoreModule { }
