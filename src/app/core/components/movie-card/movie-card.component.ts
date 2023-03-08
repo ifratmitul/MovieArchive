@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MoviesDetails } from 'src/app/core/models/movieDetails';
+import { baseConfig } from '../../config/baseConfig';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,10 +9,10 @@ import { MoviesDetails } from 'src/app/core/models/movieDetails';
 })
 export class MovieCardComponent {
 
+  imageBaseUrl:string = baseConfig.imageBaseUrl;
   @Input() details: MoviesDetails | null = null;
 
-
   onSelect(id:number){
-    //redirect to movie details
+    console.log(id);
   }
 }

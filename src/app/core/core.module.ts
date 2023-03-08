@@ -18,11 +18,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterModule } from '@angular/router';
+import {MatSelectModule} from '@angular/material/select'
+import { FilterComponent } from './components/filter/filter.component';
+import { ActorCardComponent } from './components/actor-card/actor-card.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
     NavBarComponent,
     FooterComponent,
+    FilterComponent,
+    ActorCardComponent,
+    MovieCardComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +50,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatCardModule,
     MatIconModule,
     MatDialogModule,
+    RouterModule,
+    MatSelectModule
   ],
-  exports: [NavBarComponent]
+  exports: [NavBarComponent, FilterComponent, MovieCardComponent, ActorCardComponent, MatButtonModule]
 })
 export class CoreModule { }
