@@ -15,4 +15,5 @@ export type MoviesDetails = {
     vote_count: number
     origin_country: string[]
     title?:string
+    genres?: any[]
 }

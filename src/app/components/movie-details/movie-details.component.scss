@@ -1,0 +1,49 @@
+.movie-details {
+  min-height: calc(100vh - 64px);
+  width: 100%;
+  overflow: hidden;
+
+  &__cover {
+    width: 100% !important;
+    // height: 40rem;
+    overflow: hidden;
+    position: relative;
+
+    &-img {
+      width: 100% !important;
+      object-fit: cover;
+    }
+
+    &-text {
+      position: absolute;
+      left: 10;
+      top: 0;
+      z-index: 10;
+      height: 100%;
+      background-color: rgba(24, 23, 23, 0.671);
+      display: flex;
+    //   align-items: center;
+      padding: 2rem;
+    }
+  }
+}
+
+.movie-title {
+  font-size: 20px;
+  color: white;
+
+  &-image {
+    width: 25rem;
+    width: 20rem;
+  }
+}
+
+.movie-overview {
+  padding: 1rem;
+  font-weight: 600;
+  color: white;
+
+  &__genre {
+    padding: 1rem 0;
+  }
+}

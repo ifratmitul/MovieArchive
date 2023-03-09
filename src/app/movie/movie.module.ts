@@ -17,6 +17,8 @@ import { AutoCompleteComponent } from './components/auto-complete/auto-complete.
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { CoreModule } from '../core/core.module';
+import { FilterComponent } from '../components/filter/filter.component';
+import { MovieCardComponent } from '../components/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { CoreModule } from '../core/core.module';
     MatDialogModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    CoreModule
+    FilterComponent,
+    MovieCardComponent
   ]
 })
 export class MovieModule { }

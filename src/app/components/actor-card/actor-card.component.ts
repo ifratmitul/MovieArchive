@@ -1,9 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { baseConfig } from '../../config/baseConfig';
-import { People } from '../../models/people';
+import { CommonModule } from '@angular/common';
+import { People } from 'src/app/core/models/people';
+import { baseConfig } from 'src/app/core/config/baseConfig';
+
+//material 
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-actor-card',
+  standalone: true,
+  imports: [CommonModule, MatCardModule],
   templateUrl: './actor-card.component.html',
   styleUrls: ['./actor-card.component.scss']
 })

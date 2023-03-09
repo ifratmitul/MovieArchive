@@ -41,4 +41,8 @@ export class MovieService {
       }
     })
   }
+
+  getMovieDetails(id:any) {
+    return this.http.get(`${movieConfig.movieDetailsEndPoint}/${id}`)
+  }
 }

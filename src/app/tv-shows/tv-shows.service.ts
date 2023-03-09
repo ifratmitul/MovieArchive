@@ -35,4 +35,8 @@ export class TvShowsService {
       return res.results;
     }))
   }
+
+  getTvShowDetails (id:number) {
+    return this.http.get(`${tvShowConfig.tvShowDetails}/${id}`);
+  }
 }

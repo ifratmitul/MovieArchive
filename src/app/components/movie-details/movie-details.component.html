@@ -1,0 +1,30 @@
+<div class="movie-details" *ngIf="movieDetails">
+    <section class="movie-details__cover">
+        <div class="movie-details__cover-img">
+            <img src="{{imageBaseUrl+movieDetails.backdrop_path}}">
+        </div>
+        <div class="movie-details__cover-text">
+            <div class="movie-title">
+                <div class="movie-title-image">
+                    <img src="{{imageBaseUrl+movieDetails.poster_path}}">
+                </div>
+            </div>
+            <div class="movie-overview">
+                <h2>{{movieDetails.name || movieDetails.title}}</h2>
+
+                <div class="movie-overview__genre" *ngIf="movieDetails.genres">
+                    <mat-chip-listbox aria-label="Dog selection">
+                        <mat-chip *ngFor="let genre of movieDetails.genres">
+                          {{genre.name}}
+                        </mat-chip>
+                      </mat-chip-listbox>
+                </div>
+
+                <p>{{movieDetails.overview}}</p>
+            </div>
+        </div>
+    </section>
+    <section class="cast">
+        <!-- <app-actor-card *ngFor="let item of movieDetails."></app-actor-card> -->
+    </section>
+</div>
