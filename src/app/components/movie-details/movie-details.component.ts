@@ -29,13 +29,15 @@ export class MovieDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id']
+    const id = this.activatedRoute.snapshot.params['id'];
+    console.log(this.activatedRoute)
+
     if (!id) {
       this.router.navigateByUrl('/');
     }
-    console.log(this.activatedRoute)
     if (this.activatedRoute.snapshot.routeConfig?.path?.split('/').includes('tv')) {
-      this.fetchShowInformation(id);
+      console.log('tv')
+      this.fetchTvShowdetails(id);
     }
     else {
       this.fetchShowInformation(id);

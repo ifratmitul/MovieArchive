@@ -1,0 +1,22 @@
+<div class="people">
+  <section *ngIf="peopleDetails" class="people-info">
+    <div class="people-info__image">
+      <img src="{{ imageUrl + peopleDetails.profile_path }}" />
+    </div>
+    <div class="people-info__text">
+      <div class="people-info__text-primary">
+        <h5>Name : {{ peopleDetails.name }}</h5>
+        <p>Birthday : {{ peopleDetails.birthday }}</p>
+        <p>Place of Birth : {{ peopleDetails.place_of_birth }}</p>
+        <p>
+          <strong>Also Known As :</strong>
+          {{ peopleDetails.also_known_as.join(",") }}
+        </p>
+      </div>
+      <div class="people-info__text-secondary">
+        <h5>Biography</h5>
+        <p>{{ peopleDetails.biography }}</p>
+      </div>
+    </div>
+  </section>
+</div>

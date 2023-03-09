@@ -1,23 +1,24 @@
 <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Search</mat-label>
-      <input
-        type="text"
-        class="search-field"
-        placeholder="Pick one"
-        aria-label="Number"
-        matInput
-        [formControl]="myControl"
-        [matAutocomplete]="auto"
-      />
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option
-          *ngFor="let option of filteredOptions | async"
-          [value]="option"
-        >
-          {{ option.title || option.name }}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-  </form>
-  
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search For movie</mat-label>
+    <input
+      type="text"
+      placeholder="Search"
+      aria-label="Search"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        (onSelectionChange)="onSelect(option.id)"
+        [value]="option.id"
+      >
+      <img *ngIf="option.poster_path" with="50" height="50" src="{{imageUrl+option.poster_path}}">
+      <img *ngIf="!option.poster_path" with="50" height="50" src="assets/images/bg-pattern-quotation.svg">
+        {{ option.title || option.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

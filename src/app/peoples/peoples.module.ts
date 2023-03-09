@@ -6,11 +6,13 @@ import { ActorCardComponent } from '../components/actor-card/actor-card.componen
 
 //material
 import { MatButtonModule } from '@angular/material/button';
+import { PeopleDetailsComponent } from './people-details/people-details.component';
 
 
 @NgModule({
   declarations: [
-    PeopleHomeComponent
+    PeopleHomeComponent,
+    PeopleDetailsComponent
   ],
   imports: [
     CommonModule,

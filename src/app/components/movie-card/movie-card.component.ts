@@ -24,11 +24,12 @@ export class MovieCardComponent {
 
   onSelect(id:number){
     console.log(id);
+    console.log(this.type);
     if(this.type === showType.MOVIE) {
       this.router.navigate(['/', 'movie', 'details', id])
     }
     else {
-      this.router.navigate(['/', 'tv', 'details', id])
+      this.router.navigate(['/', 'tv-shows', 'tv', 'details', id])
     }
   }
 }

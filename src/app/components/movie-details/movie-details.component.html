@@ -1,5 +1,5 @@
-<div class="movie-details" *ngIf="movieDetails">
-    <section class="movie-details__cover">
+<div class="movie-details" >
+    <section class="movie-details__cover" *ngIf="movieDetails">
         <div class="movie-details__cover-img">
             <img src="{{imageBaseUrl+movieDetails.backdrop_path}}">
         </div>

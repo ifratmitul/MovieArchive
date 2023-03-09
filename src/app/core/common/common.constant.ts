@@ -1,4 +1,4 @@
 export enum showType {
     MOVIE = 'movie',
-    TVSHOW = 'tvshow'
+    TVSHOW = 'tv'
 }

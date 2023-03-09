@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesDetails } from 'src/app/core/models/movieDetails';
 import { TvShowsService } from '../tv-shows.service';
+import { showType } from 'src/app/core/common/common.constant';
 
 @Component({
   selector: 'app-tv-show-home',
@@ -9,6 +10,7 @@ import { TvShowsService } from '../tv-shows.service';
 })
 export class TvShowHomeComponent implements OnInit{
   currentPageNo = 1;
+  type =  showType.TVSHOW;
   
   tVseries: MoviesDetails[] = []
 

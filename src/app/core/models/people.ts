@@ -7,6 +7,8 @@ export type People = {
     name: string
     popularity: number
     profile_path: string
+    birthday?:string
+    place_of_birth?:string
   }
   
   export type PeopleKnownFor = {
@@ -30,3 +32,20 @@ export type People = {
     video?: boolean
   }
   
+
+  export type PeopleDetails = {
+    adult: boolean
+    also_known_as: string[]
+    biography: string
+    birthday: string
+    deathday: any
+    gender: number
+    homepage: any
+    id: number
+    imdb_id: string
+    known_for_department: string
+    name: string
+    place_of_birth: string
+    popularity: number
+    profile_path: string
+  }
