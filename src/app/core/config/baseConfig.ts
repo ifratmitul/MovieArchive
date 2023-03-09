@@ -1,6 +1,8 @@
+import { environment } from "src/environments/environment";
+
 export const baseConfig = {
-    baseUrl: "https://api.themoviedb.org/3/",
-    api_key: "ed17b00619345e0f2c2d05d81e87028c",
-    imageBaseUrl: "https://image.tmdb.org/t/p/original",
-    lang : 'en-US'
+    baseUrl: environment.baseUrl,
+    api_key: environment.api_key,
+    imageBaseUrl: environment.imageBaseUrl,
+    lang: 'en-US'
 }

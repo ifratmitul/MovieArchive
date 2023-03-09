@@ -1,0 +1,51 @@
+.movie-card {
+    position: relative;
+  
+    &__header {
+      padding: 1rem;
+      font-size: 14px;
+      font-weight: 650;
+    }
+  
+    &-footer {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      border: 3px solid rgb(0, 255, 106);
+      border-radius: 50%;
+      color: rgb(0, 255, 106);
+      min-height: 2.4rem;
+      width: 2.4rem;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      background-color: opacify($color: #00000073, $amount: 0);
+      margin: 2px;
+    }
+  }
+  
+  .high-rating {
+    border: 3px solid rgb(0, 255, 106) !important;
+    color: rgb(0, 255, 106) !important;
+  }
+  
+  .mid-rating {
+    border: 3px solid rgb(238, 255, 0) !important;
+    color: rgb(238, 255, 0) !important;
+  }
+  
+  .low-rating {
+    border: 3px solid rgb(255, 38, 0) !important;
+    color: rgb(255, 38, 0) !important;
+  }
+  
+  img {
+    height: 20rem;
+    min-width: 15rem;
+    border-radius: 5px;
+  }

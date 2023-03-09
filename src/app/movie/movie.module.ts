@@ -13,15 +13,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'
-import { AutoCompleteComponent } from './components/auto-complete/auto-complete.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
-import { CoreModule } from '../core/core.module';
+import { FilterComponent } from '../components/filter/filter.component';
+import { MovieCardComponent } from '../components/movie-card/movie-card.component';
+import { AutoCompleteComponent } from '../components/auto-complete/auto-complete.component';
 
 @NgModule({
   declarations: [
     MovieHomeComponent,
-    AutoCompleteComponent,
     MovieListComponent
   ],
   imports: [
@@ -37,7 +37,9 @@ import { CoreModule } from '../core/core.module';
     MatDialogModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    CoreModule
+    FilterComponent,
+    MovieCardComponent,
+    AutoCompleteComponent
   ]
 })
 export class MovieModule { }

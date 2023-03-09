@@ -1,0 +1,33 @@
+.people {
+  height: calc(100vh - 64px);
+  width: 100vw !important;
+  overflow: hidden;
+
+  &-info {
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;   
+    justify-content: center;
+    &__image {
+      padding: 1rem;
+      img {
+        height: 25rem;
+      }
+
+    }
+
+    &__text {
+      width: 70%;
+      padding: 1rem;
+      &-primary {
+        h5 {
+          font-size: 24px;
+          margin: 0;
+        }
+      }
+
+      &-secondary {
+      }
+    }
+  }
+}

@@ -10,14 +10,18 @@ import { peoplesConfig } from '../core/config/peoplesConfig';
 })
 export class PeopleService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getPeopleList(pageNo:number) : Observable<PaginatedApiResponse<People>> {
+  getPeopleList(pageNo: number): Observable<PaginatedApiResponse<People>> {
     return this.http.get<PaginatedApiResponse<People>>(peoplesConfig.peoplePopularEndpoints, {
-      params : { 
-        page : pageNo,
-        language : peoplesConfig.language
+      params: {
+        page: pageNo,
+        language: peoplesConfig.language
       }
     })
+  }
+
+  getDetails(id: number) {
+    return this.http.get(`${peoplesConfig.peopleDetailsEndpoints}/${id}`);
   }
 }

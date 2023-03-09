@@ -14,6 +14,7 @@ import { CoreModule } from './core/core.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NavbarComponent } from './components/navbar/navbar.component';
  
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-
+    NavbarComponent,
     NgxSpinnerModule
   ],
   providers: [

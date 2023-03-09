@@ -34,11 +34,20 @@ export class MovieService {
     }))
   }
 
-  searchMovie(query:string) {
-    return this.http.get(movieConfig.searchMovieEndPoint, {
+  searchMovie(query:string) : Observable<MoviesDetails[]> {
+    return this.http.get<PaginatedApiResponse<MoviesDetails>>(movieConfig.searchMovieEndPoint, {
       params: {
         query : query
       }
-    })
+    }).pipe(map((res: PaginatedApiResponse<MoviesDetails>) => {
+      if (res.results.length > 5) {
+        return res.results.slice(0, 5);
+      }
+      return res.results;
+    }))
+  }
+
+  getMovieDetails(id:any) {
+    return this.http.get(`${movieConfig.movieDetailsEndPoint}/${id}`)
   }
 }
