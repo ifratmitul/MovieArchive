@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AutoCompleteComponent } from './auto-complete.component';
+import { MovieService } from 'src/app/movie/movie.service';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AutoCompleteComponent', () => {
   let component: AutoCompleteComponent;
@@ -8,7 +11,8 @@ describe('AutoCompleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ AutoCompleteComponent ]
+      imports: [ AutoCompleteComponent, HttpClientModule, BrowserAnimationsModule],
+      providers: [MovieService, HttpClient, HttpHandler]
     })
     .compileComponents();
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { People, PeopleDetails } from 'src/app/core/models/people';
 import { PeopleService } from '../people.service';
 import { baseConfig } from 'src/app/core/config/baseConfig';
@@ -14,12 +14,17 @@ export class PeopleDetailsComponent implements OnInit{
   imageUrl =  baseConfig.imageBaseUrl;
   peopleDetails: PeopleDetails | null = null;
 
-  constructor(private activatedRoute:ActivatedRoute, private peopleService:PeopleService) {}
+  constructor(private activatedRoute:ActivatedRoute, private peopleService:PeopleService, private router: Router) {}
 
   ngOnInit(): void {
     console.log(this.activatedRoute)
-    const id = this.activatedRoute.snapshot.params['id'];
-    this.fetchDetails(id);
+    const id = this.activatedRoute.snapshot.params['peopleId'] || null;
+    if(id) {
+      this.fetchDetails(id);
+    }
+    else {
+      this.router.navigateByUrl("/")
+    }
   }
 
   fetchDetails(id: any) {

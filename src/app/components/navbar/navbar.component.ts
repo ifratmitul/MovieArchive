@@ -17,7 +17,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class NavbarComponent implements OnInit {
   toggleControl = new FormControl(this.themeService.getLastDarkModeStatus());
 
-  constructor(private overlay: OverlayContainer, private themeService: ThemeService) { }
+  constructor(private themeService: ThemeService) { }
 
   ngOnInit(): void {
     this.toggleControl.valueChanges.subscribe((darkMode: any) => {

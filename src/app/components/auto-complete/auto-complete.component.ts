@@ -37,7 +37,7 @@ export class AutoCompleteComponent implements OnInit {
       debounceTime(300),
       distinctUntilChanged(),
       mergeMap((query: string | null) => {
-        if (!query) []
+        if (!query) return []
         return this.movieService.searchMovie(query!).pipe(
           map((res: MoviesDetails[]) => res)
         );

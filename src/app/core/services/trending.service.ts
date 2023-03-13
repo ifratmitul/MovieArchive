@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { trendingConfig } from '../config/trendingConfig';
+import { PaginatedApiResponse } from '../models/response';
+import { MoviesDetails } from '../models/movieDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,8 @@ import { trendingConfig } from '../config/trendingConfig';
 export class TrendingService {
   constructor(private http:HttpClient) { }
 
-  getTrendingMovieList() {
-    return this.http.get(trendingConfig.trendingEndPoint).pipe(map((res:any) => {
+  getTrendingMovieList() : Observable<MoviesDetails[]> {
+    return this.http.get<PaginatedApiResponse<MoviesDetails>>(trendingConfig.trendingEndPoint).pipe(map((res:PaginatedApiResponse<MoviesDetails>) => {
       if(res.results.length > 5) {
         return res.results.slice(0,5)
       }

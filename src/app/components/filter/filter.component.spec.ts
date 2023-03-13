@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FilterComponent } from './filter.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('FilterComponent', () => {
   let component: FilterComponent;
@@ -8,7 +11,8 @@ describe('FilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ FilterComponent ]
+      imports: [ FilterComponent,BrowserAnimationsModule , HttpClientTestingModule, HttpClientModule ],
+      providers: []
     })
     .compileComponents();
 

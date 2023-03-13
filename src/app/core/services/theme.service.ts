@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { baseConfig } from '../config/baseConfig';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +9,13 @@ import { BehaviorSubject } from 'rxjs';
 export class ThemeService {
   private darkMode = new BehaviorSubject<boolean> (this.getLastDarkModeStatus());
   $darkModelState = this.darkMode.asObservable();
-  constructor(private http:HttpClient) { }
 
   setDarkModeStatus(flag:boolean) {
     this.darkMode.next(flag);
-    localStorage.setItem("darkMode", JSON.stringify(flag))
+    localStorage.setItem(baseConfig.darkModeToken, JSON.stringify(flag))
   }
 
   getLastDarkModeStatus() : boolean {
-    return JSON.parse(localStorage.getItem("darkMode")!)
+    return !!JSON.parse(localStorage.getItem(baseConfig.darkModeToken)!)
   }
 }
