@@ -11,7 +11,7 @@
       [details]="movie"
     ></app-movie-card>
     </div>
-    <div class="movie-load">
+    <div class="movie-load" *ngIf="movieList.length">
       <button mat-raised-button class="btn btn-load-more"type="button" (click)="loadMore()">load more</button>
     </div>
 
