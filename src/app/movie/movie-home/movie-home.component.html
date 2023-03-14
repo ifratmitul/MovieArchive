@@ -46,6 +46,7 @@
   <div class="trending-movies">
     <app-movie-card
       *ngFor="let movie of todaysTvShows"
+      [type]="tvType"
       [details]="movie"
     ></app-movie-card>
     <a class="trending-movies__more" [routerLink]="['/tv-shows']">&#8594;</a>

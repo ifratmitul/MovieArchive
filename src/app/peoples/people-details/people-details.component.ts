@@ -30,7 +30,6 @@ export class PeopleDetailsComponent implements OnInit{
   fetchDetails(id: any) {
     this.peopleService.getDetails(id).subscribe({
       next: (res:any) => {
-        console.log(res);
         this.peopleDetails = {...res};
       },
       error: (err:any) => {

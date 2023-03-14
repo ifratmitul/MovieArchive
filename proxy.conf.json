@@ -1,9 +1,11 @@
 {
-    "/api": {
-      "target": "https://api.themoviedb.org/3/",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
+  "/": {
+    "target": "https://api.themoviedb.org/3",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/": ""
     }
+  }
 }
-  

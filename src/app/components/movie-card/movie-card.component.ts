@@ -23,8 +23,6 @@ export class MovieCardComponent {
   constructor(private router:Router) {}
 
   onSelect(id:number){
-    console.log(id);
-    console.log(this.type);
     if(this.type === showType.MOVIE) {
       this.router.navigate(['/', 'movie', 'details', id])
     }

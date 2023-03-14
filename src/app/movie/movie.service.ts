@@ -47,7 +47,7 @@ export class MovieService {
     }))
   }
 
-  getMovieDetails(id:any) {
-    return this.http.get(`${movieConfig.movieDetailsEndPoint}/${id}`)
+  getMovieDetails(id:any) : Observable<MoviesDetails> {
+    return this.http.get<MoviesDetails>(`${movieConfig.movieDetailsEndPoint}/${id}`)
   }
 }

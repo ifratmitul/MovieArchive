@@ -5,6 +5,7 @@ import { forkJoin, map, take } from 'rxjs';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { MovieService } from '../movie.service';
 import { TvShowsService } from 'src/app/tv-shows/tv-shows.service';
+import { showType } from 'src/app/core/common/common.constant';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class MovieHomeComponent implements OnInit {
   trendingMovieList: MoviesDetails[] = [];
   latestMovie: MoviesDetails[] = [];
   todaysTvShows : any [] = []
-
+  tvType = showType.TVSHOW
 
   constructor(private trendingService: TrendingService, private movieService: MovieService, private tvshowService:TvShowsService) { }
 

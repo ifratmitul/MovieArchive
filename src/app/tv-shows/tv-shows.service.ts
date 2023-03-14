@@ -36,7 +36,7 @@ export class TvShowsService {
     }))
   }
 
-  getTvShowDetails (id:number) {
-    return this.http.get(`${tvShowConfig.tvShowDetails}/${id}`);
+  getTvShowDetails (id:number) : Observable<MoviesDetails> {
+    return this.http.get<MoviesDetails>(`${tvShowConfig.tvShowDetails}/${id}`);
   }
 }
