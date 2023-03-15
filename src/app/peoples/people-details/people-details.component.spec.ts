@@ -4,9 +4,8 @@ import { of } from 'rxjs';
 import { PeopleService } from '../people.service';
 
 import { PeopleDetailsComponent } from './people-details.component';
-import { People, PeopleDetails } from 'src/app/core/models/people';
+import { PeopleDetails } from 'src/app/core/models/people';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('PeopleDetailsComponent', () => {
     let component: PeopleDetailsComponent;
@@ -42,7 +41,7 @@ describe('PeopleDetailsComponent', () => {
 
     beforeEach(async () => {
         activatedRouteMock = jasmine.createSpyObj('ActivatedRoute', [], {
-            snapshot: { params: { peopleId: mockPeopleDetails.id }, routeConfig: { path: 'details/:peopleId' } },
+            snapshot: { params: { peopleId: mockPeopleDetails.id }, routeConfig: { path: 'people/details/:peopleId' } },
         });
 
         await TestBed.configureTestingModule({
@@ -67,12 +66,12 @@ describe('PeopleDetailsComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    // it('should fetch people details on init', () => {
-    //     const spy = spyOn(peopleServiceSpy, 'getDetails')
-    //     spy.and.returnValue(of(mockPeopleDetails));
-    //     component.ngOnInit
-    //     expect(component.peopleDetails?.name).toEqual(mockPeopleDetails.name);
-    // });
+    it('should fetch people details on init', () => {
+        const spy = spyOn(peopleServiceSpy, 'getDetails')
+        spy.and.returnValue(of(mockPeopleDetails));
+        component.ngOnInit();
+        expect(component.peopleDetails?.name).toEqual(mockPeopleDetails.name);
+    });
 
     it('should redirect to home page if peopleId is not provided', () => {
         activatedRouteMock.snapshot.params['peopleId'] = undefined;

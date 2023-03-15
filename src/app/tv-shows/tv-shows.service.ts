@@ -10,8 +10,7 @@ import { tvShowConfig } from '../core/config/tvShowConfig';
   providedIn: 'root'
 })
 export class TvShowsService {
-
-  private url = `${environment.baseUrl}tv`
+  
   constructor(private http: HttpClient) { }
 
   getAllTvShows(pageNo: number, language: string = tvShowConfig.defaultLanguage): Observable<PaginatedApiResponse<MoviesDetails>> {

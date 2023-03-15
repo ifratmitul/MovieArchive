@@ -18,8 +18,9 @@ export class TvShowHomeComponent implements OnInit{
   ngOnInit(): void {
     this.loadTvShowList()
   }
-  loadTvShowList(query:any = null) {
-    this.tvService.getAllTvShows(this.currentPageNo, 'en-US').subscribe({
+
+  loadTvShowList() {
+    this.tvService.getAllTvShows(this.currentPageNo).subscribe({
       next: (res:any) => {
         console.log(res);
         this.currentPageNo = res.page;
@@ -34,8 +35,10 @@ export class TvShowHomeComponent implements OnInit{
   }
 
   loadMore() {
-    this.currentPageNo++;
-    this.loadTvShowList();
+    if(this.tVseries.length) {
+      this.currentPageNo++;
+      this.loadTvShowList();
+    }
   }
 
   onFilterEmitt(event:any) {

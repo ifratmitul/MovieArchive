@@ -20,8 +20,7 @@ export class ActorCardComponent {
 
   constructor (private router:Router) {}
 
-  onSelect(id:number){
-    console.log(id);
+  onSelect(id:number) : void {
     this.router.navigate(['people', 'details',  id])
   }
 }

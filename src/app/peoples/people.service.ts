@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PaginatedApiResponse } from '../core/models/response';
-import { People } from '../core/models/people';
+import { People, PeopleDetails } from '../core/models/people';
 import { peoplesConfig } from '../core/config/peoplesConfig';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class PeopleService {
     })
   }
 
-  getDetails(id: number) {
-    return this.http.get(`${peoplesConfig.peopleDetailsEndpoints}/${id}`);
+  getDetails(id: number) : Observable<PeopleDetails> {
+    return this.http.get<PeopleDetails>(`${peoplesConfig.peopleDetailsEndpoints}/${id}`);
   }
 }

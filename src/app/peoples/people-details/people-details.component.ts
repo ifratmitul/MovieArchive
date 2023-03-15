@@ -19,6 +19,7 @@ export class PeopleDetailsComponent implements OnInit{
   ngOnInit(): void {
     console.log(this.activatedRoute)
     const id = this.activatedRoute.snapshot.params['peopleId'] || null;
+    
     if(id) {
       this.fetchDetails(id);
     }
@@ -29,7 +30,7 @@ export class PeopleDetailsComponent implements OnInit{
 
   fetchDetails(id: any) {
     this.peopleService.getDetails(id).subscribe({
-      next: (res:any) => {
+      next: (res:PeopleDetails) => {
         this.peopleDetails = {...res};
       },
       error: (err:any) => {
