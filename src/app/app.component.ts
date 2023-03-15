@@ -9,7 +9,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 })
 export class AppComponent implements OnInit {
   @HostBinding('class') className = '';
-
+  title = "MovieArchive";
   constructor(private themeSevice: ThemeService, private overlay: OverlayContainer) { }
   ngOnInit(): void {
     this.themeSevice.$darkModelState.subscribe({

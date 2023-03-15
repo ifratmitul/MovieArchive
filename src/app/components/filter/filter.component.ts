@@ -20,18 +20,9 @@ export class FilterComponent implements OnInit {
   @Output() filterEmitter = new EventEmitter<any>()
   filterForm: FormGroup | null = null;
 
-
   ngOnInit(): void {
     this.filterForm = new FormGroup({
       sort_by: new FormControl('popularity.desc')
-    })
-    this.listenToFormValueChange();
-  }
-
-  listenToFormValueChange() {
-    this.filterForm?.valueChanges.subscribe((res: any) => {
-      console.log(res);
-      this.filterEmitter.emit(res);
     })
   }
 }

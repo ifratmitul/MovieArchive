@@ -1,25 +1,30 @@
 <nav>
-    <mat-toolbar color="primary">
-      <section class="menu">
-        <a class="menu-title" [routerLink]="['/']">
-          <div class="menu-title__logo">
-            <img src="/assets/images/logo.svg" />
-          </div>
-          <div class="menu-title__heading">
-            <h4>Movie Archive</h4>
-          </div>
-        </a>
-        <ul class="menu-list">
-          <li class="menu-list__item"><a type="button" [routerLink]="['/movie-list']">Movies</a></li>
-          <li class="menu-list__item"><a type="button" [routerLink]="['/tv-shows']">TV Shows</a></li>
-          <li class="menu-list__item"><a type="button" [routerLink]="['/people']">People</a></li>
-          <li class="menu-list__item">
-            <mat-slide-toggle [formControl]="toggleControl">
-              <span style="color: white">Dark</span>
-            </mat-slide-toggle>
-          </li>
-        </ul>
-      </section>
-    </mat-toolbar>
-  </nav>
-  
+  <mat-toolbar color="primary">
+    <section class="menu">
+      <a class="menu-title" [routerLink]="['/']">
+        <div class="menu-title__logo">
+          <img src="/assets/images/logo.svg" />
+        </div>
+        <div class="menu-title__heading">
+          <h4>Movie Archive</h4>
+        </div>
+      </a>
+      <ul class="menu-list">
+        <li class="menu-list__item">
+          <a type="button" [routerLink]="['/movie-list']">Movies</a>
+        </li>
+        <li class="menu-list__item">
+          <a type="button" [routerLink]="['/tv-shows']">TV Shows</a>
+        </li>
+        <li class="menu-list__item">
+          <a type="button" [routerLink]="['/people']">People</a>
+        </li>
+        <li class="menu-list__item">
+          <mat-slide-toggle [formControl]="toggleControl">
+            <span style="color: white">Dark</span>
+          </mat-slide-toggle>
+        </li>
+      </ul>
+    </section>
+  </mat-toolbar>
+</nav>

@@ -6,7 +6,7 @@
         [details]="people"
       ></app-actor-card>
     </div>
-    <div class="people-load">
+    <div class="people-load" *ngIf="peopleList.length">
       <button
         mat-raised-button
         class="btn btn-load-more"

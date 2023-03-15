@@ -24,7 +24,7 @@ export class AutoCompleteComponent implements OnInit {
   myControl = new FormControl('');
   imageUrl = baseConfig.imageBaseUrl;
   options: MoviesDetails[] = [];
-  filteredOptions: Observable<MoviesDetails[] >| null = null;
+  filteredOptions: Observable<MoviesDetails[]> | null = null;
 
   constructor(private movieService: MovieService, private router : Router) { }
 
@@ -37,7 +37,7 @@ export class AutoCompleteComponent implements OnInit {
       debounceTime(300),
       distinctUntilChanged(),
       mergeMap((query: string | null) => {
-        if (!query) []
+        if (!query) return []
         return this.movieService.searchMovie(query!).pipe(
           map((res: MoviesDetails[]) => res)
         );
@@ -46,7 +46,6 @@ export class AutoCompleteComponent implements OnInit {
   }
 
   onSelect(id:any) {
-    console.log(id);
     this.router.navigate(['movie', 'details', id])
   }
 

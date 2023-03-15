@@ -12,10 +12,10 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  getMovies(pageNo: number, language: string = movieConfig.defaultLanguage): Observable<PaginatedApiResponse<MoviesDetails>> {
+  getMovies(pageNo: number): Observable<PaginatedApiResponse<MoviesDetails>> {
     return this.http.get<PaginatedApiResponse<MoviesDetails>>(movieConfig.latestMovieEndPoint, {
       params: {
-        language: language,
+        language: movieConfig.defaultLanguage,
         page: pageNo
       }
     })
@@ -27,7 +27,7 @@ export class MovieService {
         language: movieConfig.defaultLanguage
       }
     }).pipe(map((res: PaginatedApiResponse<MoviesDetails>) => {
-      if (res.results.length > 5) {
+      if (res?.results?.length > 5) {
         return res.results.slice(0, 5);
       }
       return res.results;
@@ -40,14 +40,14 @@ export class MovieService {
         query : query
       }
     }).pipe(map((res: PaginatedApiResponse<MoviesDetails>) => {
-      if (res.results.length > 5) {
+      if (res?.results?.length > 5) {
         return res.results.slice(0, 5);
       }
-      return res.results;
+      return res?.results;
     }))
   }
 
-  getMovieDetails(id:any) {
-    return this.http.get(`${movieConfig.movieDetailsEndPoint}/${id}`)
+  getMovieDetails(id:any) : Observable<MoviesDetails> {
+    return this.http.get<MoviesDetails>(`${movieConfig.movieDetailsEndPoint}/${id}`)
   }
 }
