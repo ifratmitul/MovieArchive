@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../movie.service';
 import { MoviesDetails } from 'src/app/core/models/movieDetails';
-import { filter } from 'rxjs';
 import { PaginatedApiResponse } from 'src/app/core/models/response';
 
 @Component({
@@ -19,7 +18,8 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     this.loadMovieList()
   }
-  loadMovieList(query: any = null) {
+  loadMovieList() {
+
     this.movieService.getMovies(this.currentPage).subscribe({
       next: (res: PaginatedApiResponse<MoviesDetails>) => {
         this.currentPage = res.page;
