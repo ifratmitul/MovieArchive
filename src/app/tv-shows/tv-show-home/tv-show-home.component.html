@@ -1,0 +1,26 @@
+<section class="movie-grid">
+  <div class="movie">
+    <div class="movie-filter">
+      <app-filter (filterEmitter)="onFilterEmitt($event)"></app-filter>
+    </div>
+  </div>
+  <div class="movie">
+    <div class="flex">
+      <app-movie-card
+        *ngFor="let movie of tVseries"
+        [details]="movie"
+        [type]="type"
+      ></app-movie-card>
+    </div>
+    <div class="movie-load">
+      <button
+        mat-raised-button
+        class="btn btn-load-more"
+        type="button"
+        (click)="loadMore()"
+      >
+        load more
+      </button>
+    </div>
+  </div>
+</section>

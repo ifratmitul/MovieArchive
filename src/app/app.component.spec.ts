@@ -1,35 +1,66 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { AppComponent } from './app.component';
+import { BehaviorSubject, of, take } from 'rxjs';
+import { ThemeService } from './core/services/theme.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { baseConfig } from './core/config/baseConfig';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let themeService: ThemeService;
+  let overlay: OverlayContainer;
+  let overlayElement: HTMLElement;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+      declarations: [AppComponent],
+      imports: [NgxSpinnerModule, HttpClientTestingModule, NavbarComponent, RouterTestingModule],
+      providers: [ThemeService, OverlayContainer]
+    })
+      .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    themeService = TestBed.inject(ThemeService);
+    overlay = TestBed.inject(OverlayContainer);
+    overlayElement = overlay.getContainerElement();
+    fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    localStorage.removeItem(baseConfig.darkModeToken);
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'MovieArchive'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('MovieArchive');
+  it('should have title as "MovieArchive"', () => {
+    expect(component.title).toBe('MovieArchive');
   });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  
+  it('should add darkMode class to overlay element on darkMode true during subscription', () => {
+    const spy = spyOn(themeService.$darkModelState, 'pipe').and.callThrough();
+    component.ngOnInit();
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('MovieArchive app is running!');
+    themeService.setDarkModeStatus(true);
+    fixture.detectChanges();
+    expect(overlayElement.classList.contains('darkMode')).toBeTruthy();
+  });
+
+  it('should remove darkMode class to overlay element on darkMode false during subscription', () => {
+    const spy = spyOn(themeService.$darkModelState, 'pipe').and.callThrough();
+    component.ngOnInit();
+    fixture.detectChanges();
+    themeService.setDarkModeStatus(false);
+    fixture.detectChanges();
+    expect(overlayElement.classList.contains('darkMode')).toBeFalsy();
   });
 });

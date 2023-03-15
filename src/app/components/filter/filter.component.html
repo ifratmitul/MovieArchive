@@ -1,0 +1,16 @@
+<mat-accordion class="example-headers-align" *ngIf="filterForm" multi>
+    <form [formGroup]="filterForm">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Sort By</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose an option</mat-label>
+      <mat-select class="select" formControlName="sort_by">
+        <mat-option value="popularity.asc">Popular Ascending</mat-option>
+        <mat-option value="popularity.desc">Popular Descending</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-expansion-panel>
+</form>
+</mat-accordion>

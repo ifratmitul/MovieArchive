@@ -1,0 +1,92 @@
+@use "@angular/material" as mat;
+@import "@angular/material/theming";
+
+@include mat.core();
+
+$bright-navy-blue-palette: (
+  50: #e4e9ed,
+  100: #bbc8d5,
+  200: #8fa4b8,
+  300: #66819b,
+  400: #436789,
+  500: #184f78,
+  600: #0f4870,
+  700: #033f66,
+  800: #003559,
+  900: #032541,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: white,
+  ),
+);
+
+$brown-palette: (
+  50: #fde8cd,
+  100: #e5c7ab,
+  200: #c6a486,
+  300: #a6825f,
+  400: #8e6842,
+  500: #764f25,
+  600: #6c461f,
+  700: #5d3a17,
+  800: #502d10,
+  900: #411f03,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: white,
+  ),
+);
+
+$my-app-primary: mat.define-palette($bright-navy-blue-palette, 900);
+$my-app-accent: mat.define-palette($brown-palette, 50);
+$my-app-warn: mat.define-palette(mat.$red-palette);
+
+$my-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-app-primary,
+      accent: $my-app-accent,
+      warn: $my-app-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-app-theme);
+
+$angular-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-app-primary,
+      accent: $my-app-accent,
+      warn: $my-app-warn,
+    ),
+  )
+);
+
+.darkMode {
+  @include mat.all-component-colors($angular-dark-theme);
+}
