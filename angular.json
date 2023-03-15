@@ -74,7 +74,7 @@
           "options": {
             "browserTarget": "MovieArchive:build",
             "proxyConfig": "proxy.conf.json"
-         },
+          },
           "configurations": {
             "production": {
               "browserTarget": "MovieArchive:build:production"
@@ -110,11 +110,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "2c28ede7-b74c-454a-9cc4-3fb6c92ee4b6"
+    "analytics": "2c28ede7-b74c-454a-9cc4-3fb6c92ee4b6",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
